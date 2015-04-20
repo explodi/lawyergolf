@@ -17,7 +17,7 @@ var putterscript=[
 	{'id': 2, 'text': "Listen carefully!"},
 	{'id': 2, 'text': "Approach the ball, and click and drag to putt."},
 	{'id': 2, 'text': "And by all means"},
-	{'id': 2, 'text': "DON\'T EVER HIT THE SPACEBAR"},
+	{'id': 2, 'text': "DON\'T EVER HIT THE F KEY"},
 	{'id': 2, 'text': "You could hurt someone"}
 	
 ]
