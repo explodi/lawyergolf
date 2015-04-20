@@ -15,7 +15,7 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
 function GolfScene(canvas) {
 	console.log("Golf scene starting")
   this.ballradius=6;
-  this.hole=0;
+  this.hole=2;
   this.shot=0;
   this.turn=1;
   this.camera={x:0,y:0}
