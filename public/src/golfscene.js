@@ -15,9 +15,9 @@ var   b2Vec2 = Box2D.Common.Math.b2Vec2
 function GolfScene(canvas) {
 	console.log("Golf scene starting")
   this.ballradius=6;
-  this.hole=2;
+  this.hole=0;
   this.shot=0;
-  this.turn=1;
+  this.turn=null;
   this.camera={x:0,y:0}
   this.cursor=null;
   this.editor=false;
@@ -234,21 +234,28 @@ GolfScene.prototype.update=function() {
   this.ctx.fillStyle = "#000000";
   this.ctx.font="10px Menlo";
   modestr="play mode"
-  modestr=modestr+" (turn: "+this.turn+" shot: "+this.shot+")"
+  modestr=modestr+" (hole: "+this.hole+" turn: "+this.turn+" shot: "+this.shot+")"
   if(this.editor==true) modestr="edit mode"
     this.ctx.fillText(modestr,10,20);
 }; 
 
 GolfScene.prototype.nextgoal=function(e) {
   this.shot=0;
+  var legal=true;
   if(this.turn==null) {
     this.turn=0;
   } else if(this.turn==0) {
     this.turn=1;
   } else if(this.turn==1) {
     this.turn=0;
+    if(this.hole<2) {
+      this.hole=this.hole+1;
+      this.people[1].destination={x:holes[this.hole].start.x,y:holes[this.hole].start.y-64}
+    } else {
+      legal=false;
+    }
   }
-  this.addball();
+  if(legal==true) this.addball();
 
 }
 
