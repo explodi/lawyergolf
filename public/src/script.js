@@ -46,7 +46,7 @@ var gamescript=[
 	{'id': 1, 'text': 'Yes, I care deeply about your sweetness.'},
 	{'id': 0, 'text': 'Does Caroline care deeply about your sweetness, Pheldon?'},
 	{'id': 1, 'text': 'Oh, absolutely. Yes.'},
-	{'id': 1, 'text': 'Why?'},
+	{'id': 0, 'text': 'Why?'},
 
 	],
 	
@@ -79,7 +79,12 @@ var gamescript=[
 	{'id': 1, 'text': 'Because she loves me, Brad.'},
 	{'id': 0, 'text': 'I\'m not sure I understand.'},
 	{'id': 1, 'text': 'One day, you will. One day you\'ll understand love.'},
-	{'id': 1, 'text': 'Or maybe you won\'t. Maybe you\'ll be lonely forever'}
+	{'id': 1, 'text': 'Or maybe you won\'t. Maybe you\'ll be lonely forever'},
+	{'id': 0, 'text': 'How could you say that to me?'},
+	{'id': 0, 'text': 'I was always picked last in gym class…'},
+	{'id': 0, 'text': 'Kids threw shoes at me in first grade.'},
+	{'id': 0, 'text': 'A teacher threw me off the roof in fourth grade.'},
+	{'id': 0, 'text': 'In eighth grade, the principal murdered my entire family.'},
 	],
 	
 	[
@@ -129,8 +134,9 @@ var gamescript=[
 	],
 	
 	[
-	{'id': 1, 'text': 'Are you drunk?'},
-	{'id': 0, 'text': 'No. Fight me.'},
+	{'id': 1, 'text': 'I\'LL FUCKING END YOU.'},
+	{'id': 1, 'text': 'You\'re dead, motherfuker.'},
+	{'id': 0, 'text': 'No, I\'m not.'},
 	{'id': 1, 'text': 'What?'},
 	{'id': 0, 'text': 'Fucking physically fight me as a man.'},
 	{'id': 0, 'text': 'One of us is going to die.'},
@@ -141,23 +147,28 @@ var gamescript=[
 	{'id': 1, 'text': 'then so be it.'},
 	{'id': 0, 'text': 'A warrior desires a sword'},
 	{'id': 1, 'text': 'and a sword desires truth.'},
-	{'id': 1, 'text': 'Defend yourself!!!'},
-	{'id': 0, 'text': 'FUCKFACE!!!!'},
-	{'id': 1, 'text': 'I’LL END YOU!!!!'},
-	{'id': 0, 'text': 'Watch out, shitbag…'},
-	{'id': 0, 'text': 'I’m comin’ for ya!'},
+	{'id': 0, 'text': 'Defend yourself!!!'},
+	{'id': 1, 'text': 'FUCKFACE!!!!'},
+	{'id': 0, 'text': 'I’LL END YOU!!!!'},
+	{'id': 1, 'text': 'Watch out, shitbag…'},
+	{'id': 1, 'text': 'I’m comin’ for ya!'},
 	{'id': 0, 'text': 'I hate you and your beautiful hair.'},
 	{'id': 0, 'text': 'You\'ll choke on those expensive fucking loafers.'},
 	{'id': 0, 'text': 'Your demise is near'},
+	{'id': 1, 'text': 'I am the one true assdaddy. Bow before me.'},
 	{'id': 1, 'text': 'Any last words?'},
-	{'id': 0, 'text': 'How about SUCK MY DICK'},
+	{'id': 0, 'text': 'How about SUCK MY DICK, FUCKWAD'},
 	{'id': 0, 'text': 'MY ROCK HARD DICK'},
 	{'id': 1, 'text': 'Wow. You\'ve lost it.'},
 	{'id': 1, 'text': 'You\'ve really, truly lost it.'},
 	{'id': 1, 'text': 'I will not regret ending your life.'},
 	{'id': 1, 'text': 'I\'ll enjoy seeing every last drop of blood…'},
 	{'id': 1, 'text': 'leak from your body onto hole number 3.'},
-	{'id': 0, 'text': 'That\'s where you\'re wrong, Phel.'}
+	{'id': 0, 'text': 'That\'s where you\'re wrong, Phel.'},
+	{'id': 0, 'text': 'I\'ve been training for years for this very moment.'},
+	{'id': 0, 'text': 'I promise, your life is over.'},
+	{'id': 1, 'text': 'Pinky promise?'},
+	{'id': 0, 'text': 'No.'}
 	]
 
 ]
