@@ -12,7 +12,7 @@ function Person(x,y,world,scale) {
 	this.y=null;
 	this.bodyDef = new b2BodyDef;
 	this.bodyDef.type = b2Body.b2_dynamicBody;
-	this.fixDef.shape = new b2CircleShape(16/this.size);
+	this.fixDef.shape = new b2CircleShape(12/this.size);
 	this.bodyDef.linearDamping=10;
 	this.angle=180
   this.frame=4
@@ -25,6 +25,9 @@ function Person(x,y,world,scale) {
   this.direction=null;
   this.destination=null;
   this.thinking=0;
+  this.gotputter=false;
+  this.stuck=false;
+  this.talking=null;
 }
 Person.prototype.setsprite=function(spriteid) {
   this.sprite = new Image();
@@ -68,7 +71,8 @@ Person.prototype.draw=function(ctx,scale,camera) {
     ctx.restore();
 
     if(this.direction!=null && this.angle!=null) {
-    	force=32
+      
+    	force=16
     	angle=this.angle-90;
     	direction=new b2Vec2(force*Math.cos(angle*Math.PI/180),force*Math.sin(angle*Math.PI/180));
   		this.entity.GetBody().ApplyForce(
@@ -88,6 +92,25 @@ Person.prototype.draw=function(ctx,scale,camera) {
     if(this.entity.GetBody().GetLinearVelocity().Length()<1) {
       this.frame=0;
     }
+
+    
+    
+
+}
+Person.prototype.drawspeech=function(ctx,scale,camera) {
+  if(this.talking!=null) {
+      fontheight=10;
+      ctx.font=fontheight+"px Menlo";
+      var textsize = ctx.measureText(this.talking);
+
+      boxx=this.x-camera.x-(textsize.width/2)
+      boxy=this.y-camera.y-64
+      padding=10;
+      ctx.fillStyle = "#000000";
+      ctx.fillRect(boxx,boxy,textsize.width+(padding*2),fontheight+(padding*2));
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fillText(this.talking,boxx+padding,boxy+fontheight+padding);
+    }
 }
 Person.prototype.distance=function(a,b) {
   x1=a.x
@@ -95,4 +118,12 @@ Person.prototype.distance=function(a,b) {
   y1=a.y
   y2=b.y
   return Math.sqrt( Math.pow((x1-x2), 2) + Math.pow((y1-y2), 2) );
+}
+Person.prototype.talk=function(text) {
+  console.log("[dialog] "+text)
+  this.talking=text;
+  var p=this;
+  setTimeout(function(){
+    p.talking=null;
+  },4000)
 }
