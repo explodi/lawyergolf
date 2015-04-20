@@ -1,14 +1,20 @@
 var introscript=[
 	{'id': 0, 'text': "Hey Pheldon, how are you?"},
 	{'id': 1, 'text': "I\'m rich."},
-	{'id': 0, 'text': "Never rich enough, huh?"},
-	{'id': 1, 'text': "I am rich enough. Let's play some golf."}
+	{'id': 0, 'text': "I can see that. Nice car!"},
+	{'id': 1, 'text': "It's fine."},
+	{'id': 1, 'text': "Let's play some golf."},
+	{'id': 0, 'text': "It’s minigolf, Pheldon."},
+	{'id': 0, 'text': "Mini. Golf."},
+	{'id': 1, 'text': "Yeah, sure Brad"}
+	
 ]
 var putterscript=[
 	{'id': 0, 'text': "Hey, we're here to play some golf"},
 	{'id': 2, 'text': "Oh, really?"},
 	{'id': 1, 'text': "Just give us the damn clubs, smart ass"},
 	{'id': 2, 'text': "Ok. Here they are. Click and drag to putt."}
+	
 ]
 var gamescript=[
 

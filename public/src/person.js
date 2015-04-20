@@ -7,27 +7,35 @@ function Person(x,y,world,scale) {
 	this.fixDef.density = 1.0;
 	this.fixDef.friction = 0.5;
 	this.fixDef.restitution = 0.2;
-
+  this.enemy=null;
 	this.x=null;
 	this.y=null;
 	this.bodyDef = new b2BodyDef;
 	this.bodyDef.type = b2Body.b2_dynamicBody;
-	this.fixDef.shape = new b2CircleShape(12/this.size);
+	this.fixDef.shape = new b2CircleShape(10/this.size);
 	this.bodyDef.linearDamping=10;
 	this.angle=180
   this.frame=4
+  this.health=100
+  this.invisible=false;
   this.walkdistance=0;
 	this.bodyDef.position.x = x/scale;
 	this.bodyDef.position.y = y/scale;
 	this.entity=this.world.CreateBody(this.bodyDef).CreateFixture(this.fixDef);
 	this.sprite = new Image();
   this.sprite.src = 'img/lawyer1.png';
+  this.club = new Image();
+  this.club.src = 'img/putter.png';
   this.direction=null;
   this.destination=null;
   this.thinking=0;
   this.gotputter=false;
   this.stuck=false;
   this.talking=null;
+  this.force=0;
+  this.punch=0;
+  this.hurt=0;
+  this.ai=false;
 }
 Person.prototype.setsprite=function(spriteid) {
   this.sprite = new Image();
@@ -36,7 +44,7 @@ Person.prototype.setsprite=function(spriteid) {
 Person.prototype.atdestination=function() {
   if(this.destination!=null && this.x!=null && this.y!=null) {
     d=this.distance({x:this.x,y:this.y},this.destination);
-    if(d<32) {
+    if(d<16) {
       return true;
     } else {
       return false;
@@ -48,6 +56,17 @@ Person.prototype.atdestination=function() {
   
 }
 Person.prototype.draw=function(ctx,scale,camera) {
+  if(this.punch>0) {
+    this.punch=this.punch-333;
+  }
+  if(this.punch<0) {
+    this.punch=0;
+  }
+  if(this.hurt>0) {
+    this.hurt=this.hurt-5;
+  } else {
+    this.hurt=0;
+  }
 	this.x=(this.entity.GetBody().GetPosition().x*scale)
 	this.y=(this.entity.GetBody().GetPosition().y*scale)
 
@@ -65,13 +84,12 @@ Person.prototype.draw=function(ctx,scale,camera) {
 
     // draw it up and to the left by half the width
     // and height of the image 
-    ctx.drawImage(this.sprite, (this.frame*this.size),0,this.size,this.size, -16, -16,this.size,this.size);
+    if(this.invisible==false) ctx.drawImage(this.sprite, (this.frame*this.size),0,this.size,this.size, -16, -16,this.size,this.size);
 
     // and restore the co-ords to how they were when we began
-    ctx.restore();
 
     if(this.direction!=null && this.angle!=null) {
-      
+      this.force=0;
     	force=16
     	angle=this.angle-90;
     	direction=new b2Vec2(force*Math.cos(angle*Math.PI/180),force*Math.sin(angle*Math.PI/180));
@@ -89,11 +107,31 @@ Person.prototype.draw=function(ctx,scale,camera) {
       }
 
     }
-    if(this.entity.GetBody().GetLinearVelocity().Length()<1) {
+    var clubframe=0;
+    if(this.hurt>0) {
+      ff=Math.round(this.hurt/10);
+      if(ff>4) ff=4;
+      this.frame=22+ff;
+
+    } else if(this.punch>0) {
+      ff=Math.round(this.punch/500);
+      if(ff>4) ff=4;
+      this.frame=17+ff;
+          ctx.drawImage(this.club, ff*this.size,0,this.size,this.size, -16, -28,this.size,this.size);    
+
+
+    } else if(this.force>0) {
+      ff=Math.round(this.force/50);
+      if(ff>4) ff=4;
+      this.frame=12+ff;
+      clubframe=ff;
+    } else if(this.entity.GetBody().GetLinearVelocity().Length()<1) {
       this.frame=0;
     }
-
-    
+    ctx.restore();
+    if(this.enemy) {
+      this.direction={x:enemy.x,y:enemy.y}
+    }
     
 
 }
@@ -126,4 +164,21 @@ Person.prototype.talk=function(text) {
   setTimeout(function(){
     p.talking=null;
   },4000)
+}
+Person.prototype.hit=function(enemy) {
+  this.force=0;
+  console.log("HIT")
+  this.punch=4000;
+  if(this.distance({x:this.x,y:this.y},{x:enemy.x,y:enemy.y})<32) {
+    enemy.angle=this.angle-180
+    angle=this.angle-90;
+  force=500;
+  direction=new b2Vec2(force*Math.cos(angle*Math.PI/180),force*Math.sin(angle*Math.PI/180));
+  enemy.hurt=100;
+  enemy.entity.GetBody().ApplyForce(
+      direction,
+      enemy.entity.GetBody().GetWorldCenter()
+  );
+  }
+  
 }

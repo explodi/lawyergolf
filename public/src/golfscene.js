@@ -30,13 +30,13 @@ function GolfScene(canvas) {
   this.scale=32;
   this.scores=[[0,0],[0,0],[0,0]];
   this.shots=[[],[],[]];
-  this.waiting=false;
+  this.waiting=true;
   this.people=new Array();
   this.introstarted=false;
   this.entities=new Array();
   this.ctx=canvas.getContext('2d');
   this.speechbubbles=new Array();
-  this.puttershop={x:730,y:1300}
+  this.puttershop={x:720,y:1300}
 
   this.world = new b2World(
              new b2Vec2(0, 0)    //gravity
@@ -69,10 +69,12 @@ function GolfScene(canvas) {
   this.people.push(player);
   player=new Person(640,1890,this.bigworld,this.scale);
   player.setsprite(2);
+  player.ai=true;
   player.thinking=720;
   player.destination={x:740,y:1300}
   this.people.push(player);
   clerk=new Person(650,1300,this.bigworld,this.scale);
+  clerk.invisible=true;
   this.people.push(clerk);
   var game=this;
   setInterval(function(){
@@ -95,6 +97,9 @@ function GolfScene(canvas) {
       
     }
   },600);
+  setTimeout(function(){
+    // game.waiting=false;
+  },17000)
 }
 
 GolfScene.prototype.distance=function(a,b) {
@@ -121,12 +126,13 @@ GolfScene.prototype.nextdialog=function() {
 }
 
 GolfScene.prototype.update=function() {
+  var pheldon=this.people[1];
   // ai shit
   guy=this.people[1];
   if(guy.thinking>0) {
     guy.thinking=guy.thinking-1;
   }
-  if(this.waiting==false && guy.thinking==0) {
+  if(this.waiting==false) {
     if(this.people[1].atdestination()==false) {
       if(this.people[1].destination==null) {
         // needs destination?
@@ -146,7 +152,7 @@ GolfScene.prototype.update=function() {
       }
     } else {
       // in destination
-      guy.destination=null;
+      var pheldon=this.people[1]
       guy.direction=null;  
       if(this.hole!=null && this.turn==1 && this.waiting==false) {
 
@@ -154,9 +160,16 @@ GolfScene.prototype.update=function() {
         var shot=aishots[this.hole][this.shot];
         var ball=this.balls[0];
         var game=this;
-        this.waiting=true;
+        if(pheldon.force>shot.force) {
+          this.waiting=true;
           game.shot=game.shot+1;
           ball.shoot(shot);
+          pheldon.force=1;
+          pheldon.destination=null;
+        } else {
+          pheldon.force=pheldon.force+0.5;
+        }
+        
       }
       
     }
@@ -165,7 +178,7 @@ GolfScene.prototype.update=function() {
 
 
     
-  }
+  } 
   
   // camera stuff
   if(this.people[0]) {
@@ -246,7 +259,7 @@ GolfScene.prototype.update=function() {
   // putter scene
   if(this.people[0].gotputter==false && this.people[0].stuck==false) {
         d=this.people[0].distance({x:this.people[0].x,y:this.people[0].y},this.puttershop);
-        if(d<20) {
+        if(d<64) {
           this.people[0].stuck=true;
           this.dialogscript=putterscript;
           this.introstarted=true;
@@ -283,8 +296,20 @@ GolfScene.prototype.update=function() {
   this.ctx.font="10px Menlo";
   modestr="play mode"
   modestr=modestr+" (hole: "+this.hole+" turn: "+this.turn+" shot: "+this.shot+")"
+
+  pheldonstr="[pheldon] x: "+Math.round(pheldon.x)+" y:"+Math.round(pheldon.y)+" d:"
+  if(pheldon.destination!=null) {
+    pheldonstr=pheldonstr+pheldon.destination.x+","+pheldon.destination.y
+    if(pheldon.atdestination()==true) {
+      pheldonstr=pheldonstr+" (true)"
+    } 
+  } else {
+    pheldonstr=pheldonstr+"null"
+  }
+  pheldonstr=pheldonstr+" f:"+pheldon.force;
   if(this.editor==true) modestr="edit mode"
     this.ctx.fillText(modestr,10,20);
+    this.ctx.fillText(pheldonstr,10,32);
 
   // speech bubbles
  for(i in this.people) {
@@ -302,6 +327,8 @@ GolfScene.prototype.nextgoal=function(e) {
     this.turn=0;
   } else if(this.turn==0) {
     this.turn=1;
+    this.people[1].destination={x:holes[this.hole].start.x,y:holes[this.hole].start.y}
+
   } else if(this.turn==1) {
     this.turn=0;
     if(this.hole<2) {
@@ -349,24 +376,34 @@ GolfScene.prototype.mousedown=function(e) {
 }
 
 GolfScene.prototype.mouseup=function(e) {
-  if(this.editor==false && this.waiting==false && this.turn==0) {
+  if(this.editor==false && this.waiting==false) {
     // shoot ball
-    this.waiting=true;
     angle=Math.atan2(this.startcursor.y-this.cursor.y,this.startcursor.x-this.cursor.x)*(180/Math.PI)
     force=this.distance(this.startcursor,this.cursor);
     force=force*2;
     var shot={angle:angle,force:force}
-    if(this.turn==0) {
-          this.shots[this.hole].push(shot);
+    d=10000
+    if(this.balls[0]) d=this.distance({x:this.balls[0].x,y:this.balls[0].y},{x:this.people[0].x,y:this.people[0].y})
+    if(this.turn==0 && d<64) {
+      this.waiting=true;
+      this.shots[this.hole].push(shot);
+      this.balls[0].shoot(shot);
+      console.log("HOLA")
     }
-    this.balls[0].shoot(shot);
     
   }
   this.startcursor=null;
-
+  this.people[0].force=1;
 }
 GolfScene.prototype.mousemove=function(e) {
   this.cursor = {x:e.clientX+this.camera.x, y: e.clientY+this.camera.y}
+  if(this.startcursor) {
+    angle=Math.atan2(this.startcursor.y-this.cursor.y,this.startcursor.x-this.cursor.x)*(180/Math.PI)
+    force=this.distance(this.startcursor,this.cursor);
+    force=force;
+    console.log(force);
+    this.people[0].force=force;
+  }
   if(this.people[0] && this.startcursor==null && true==false) {
     angle=Math.atan2(this.people[0].y-this.cursor.y,this.people[0].x-this.cursor.x)*(180/Math.PI)
     this.people[0].angle=angle-90;
@@ -394,6 +431,7 @@ GolfScene.prototype.keydown=function(e) {
     if(e.keyCode==65) {
       this.people[0].angle=this.people[0].angle-4
     }
+  
     if(e.keyCode==68) {
       this.people[0].angle=this.people[0].angle+4
     }
@@ -408,6 +446,8 @@ GolfScene.prototype.keydown=function(e) {
       this.editor=true;
       console.log("switched to edit mode")
     }
+  } else if(e.keyCode==32) {
+    this.people[0].hit(this.people[1]);
   } else {
     console.log(e.keyCode+" is not a shortcut");
   }
