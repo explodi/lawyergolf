@@ -26,6 +26,8 @@ function Person(x,y,world,scale) {
   this.sprite.src = 'img/lawyer1.png';
   this.club = new Image();
   this.club.src = 'img/putter.png';
+  this.deadsprite = new Image();
+  this.deadsprite.src = 'img/dead1.png';
   this.direction=null;
   this.destination=null;
   this.thinking=0;
@@ -40,11 +42,13 @@ function Person(x,y,world,scale) {
 Person.prototype.setsprite=function(spriteid) {
   this.sprite = new Image();
   this.sprite.src = "img/lawyer"+spriteid+".png";
+  this.deadsprite = new Image();
+  this.deadsprite.src = 'img/dead'+spriteid+'.png';
 }
 Person.prototype.atdestination=function() {
   if(this.destination!=null && this.x!=null && this.y!=null) {
     d=this.distance({x:this.x,y:this.y},this.destination);
-    if(d<16) {
+    if(d<32) {
       return true;
     } else {
       return false;
@@ -84,11 +88,18 @@ Person.prototype.draw=function(ctx,scale,camera) {
 
     // draw it up and to the left by half the width
     // and height of the image 
-    if(this.invisible==false) ctx.drawImage(this.sprite, (this.frame*this.size),0,this.size,this.size, -16, -16,this.size,this.size);
+    if(this.invisible==false) {
+      if(this.health>0) {
+        ctx.drawImage(this.sprite, (this.frame*this.size),0,this.size,this.size, -16, -16,this.size,this.size);
 
+      } else {
+        ctx.drawImage(this.deadsprite, 0,0,this.size*2,this.size*2, -32, -32,this.size*2,this.size*2);
+
+      }
+    }
     // and restore the co-ords to how they were when we began
 
-    if(this.direction!=null && this.angle!=null) {
+    if(this.direction!=null && this.angle!=null && this.health>0) {
       this.force=0;
     	force=16
     	angle=this.angle-90;
@@ -112,7 +123,7 @@ Person.prototype.draw=function(ctx,scale,camera) {
       ff=Math.round(this.hurt/10);
       if(ff>4) ff=4;
       this.frame=22+ff;
-
+      if(this.ai==true) this.health=this.health-1;
     } else if(this.punch>0) {
       ff=Math.round(this.punch/500);
       if(ff>4) ff=4;
@@ -129,14 +140,20 @@ Person.prototype.draw=function(ctx,scale,camera) {
       this.frame=0;
     }
     ctx.restore();
-    if(this.enemy) {
-      this.direction={x:enemy.x,y:enemy.y}
+    if(this.enemy && this.health>0) {
+      if(this.distance({x:this.enemy.x,y:this.enemy.y},{x:this.x,y:this.y})<64) {
+        d20=Math.round(Math.random()*20)
+        if(d20==1) this.hit(this.enemy);
+      } else {
+        this.destination={x:this.enemy.x,y:this.enemy.y}
+
+      }
     }
     
 
 }
 Person.prototype.drawspeech=function(ctx,scale,camera) {
-  if(this.talking!=null) {
+  if(this.talking!=null && this.health>0) {
       fontheight=10;
       ctx.font=fontheight+"px Menlo";
       var textsize = ctx.measureText(this.talking);
@@ -167,7 +184,6 @@ Person.prototype.talk=function(text) {
 }
 Person.prototype.hit=function(enemy) {
   this.force=0;
-  console.log("HIT")
   this.punch=4000;
   if(this.distance({x:this.x,y:this.y},{x:enemy.x,y:enemy.y})<32) {
     enemy.angle=this.angle-180
@@ -175,6 +191,7 @@ Person.prototype.hit=function(enemy) {
   force=500;
   direction=new b2Vec2(force*Math.cos(angle*Math.PI/180),force*Math.sin(angle*Math.PI/180));
   enemy.hurt=100;
+  if(enemy.ai==true) enemy.enemy=this;
   enemy.entity.GetBody().ApplyForce(
       direction,
       enemy.entity.GetBody().GetWorldCenter()

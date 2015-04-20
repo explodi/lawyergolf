@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="src/ball.js"></script>
 	<script type="text/javascript" src="src/entity.js"></script>
 	<script type="text/javascript" src="src/person.js"></script>
+	<script type="text/javascript" src="src/startscene.js"></script>
 
 	<script type="text/javascript" src="src/golfscene.js"></script>
 	<script type="text/javascript" src="src/lawyer.js"></script>
@@ -28,7 +29,7 @@
 	<script type="text/javascript">
 	$(function () {
 		initcanvas();
-		loadscene(new GolfScene(canvas));
+		loadscene(new StartScene(canvas));
 	});
 	$( window ).resize(function() {
 		fixdimensions();

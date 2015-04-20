@@ -66,6 +66,7 @@ function GolfScene(canvas) {
   playerstart={x:570,y:2030};
   if(this.hole!=null) playerstart=holes[this.hole].start
   player=new Person(570,2000,this.bigworld,this.scale);
+  player.health=200
   this.people.push(player);
   player=new Person(640,1890,this.bigworld,this.scale);
   player.setsprite(2);
@@ -98,7 +99,7 @@ function GolfScene(canvas) {
     }
   },600);
   setTimeout(function(){
-    // game.waiting=false;
+    game.waiting=false;
   },17000)
 }
 
@@ -132,7 +133,7 @@ GolfScene.prototype.update=function() {
   if(guy.thinking>0) {
     guy.thinking=guy.thinking-1;
   }
-  if(this.waiting==false) {
+  if(this.waiting==false && pheldon.health>0) {
     if(this.people[1].atdestination()==false) {
       if(this.people[1].destination==null) {
         // needs destination?
@@ -243,7 +244,7 @@ GolfScene.prototype.update=function() {
       if(ball.entity.GetBody().GetLinearVelocity().Length()<0.05) this.waiting=false;
 
     }
-    if(togoal<4) {
+    if(togoal<5) {
       this.world.DestroyBody(ball.entity.GetBody());
       this.balls.splice(i,1);
       this.nextgoal();
@@ -299,14 +300,14 @@ GolfScene.prototype.update=function() {
 
   pheldonstr="[pheldon] x: "+Math.round(pheldon.x)+" y:"+Math.round(pheldon.y)+" d:"
   if(pheldon.destination!=null) {
-    pheldonstr=pheldonstr+pheldon.destination.x+","+pheldon.destination.y
+    pheldonstr=pheldonstr+Math.round(pheldon.destination.x)+","+Math.round(pheldon.destination.y)
     if(pheldon.atdestination()==true) {
       pheldonstr=pheldonstr+" (true)"
     } 
   } else {
     pheldonstr=pheldonstr+"null"
   }
-  pheldonstr=pheldonstr+" f:"+pheldon.force;
+  pheldonstr=pheldonstr+" f:"+pheldon.force+" h:"+Math.round(pheldon.health);
   if(this.editor==true) modestr="edit mode"
     this.ctx.fillText(modestr,10,20);
     this.ctx.fillText(pheldonstr,10,32);
@@ -358,9 +359,9 @@ GolfScene.prototype.nextgoal=function(e) {
 
 // controls
 GolfScene.prototype.mousedown=function(e) {
-  if(this.editor==false) {
+  if(this.editor==false && this.people[0].health>0 && this.people[0].gotputter==true) {
     this.startcursor=this.cursor;
-  } else {
+  } else if(this.editor==true) {
     if(this.newpoly==null) this.newpoly=new Array();
     this.newpoly.push(this.cursor);
 
@@ -376,7 +377,7 @@ GolfScene.prototype.mousedown=function(e) {
 }
 
 GolfScene.prototype.mouseup=function(e) {
-  if(this.editor==false && this.waiting==false) {
+  if(this.editor==false && this.waiting==false && this.people[0].health>0 && this.people[0].gotputter==true) {
     // shoot ball
     angle=Math.atan2(this.startcursor.y-this.cursor.y,this.startcursor.x-this.cursor.x)*(180/Math.PI)
     force=this.distance(this.startcursor,this.cursor);
@@ -390,10 +391,10 @@ GolfScene.prototype.mouseup=function(e) {
       this.balls[0].shoot(shot);
       console.log("HOLA")
     }
-    
+    this.people[0].force=1;
   }
   this.startcursor=null;
-  this.people[0].force=1;
+  
 }
 GolfScene.prototype.mousemove=function(e) {
   this.cursor = {x:e.clientX+this.camera.x, y: e.clientY+this.camera.y}
@@ -446,8 +447,9 @@ GolfScene.prototype.keydown=function(e) {
       this.editor=true;
       console.log("switched to edit mode")
     }
-  } else if(e.keyCode==32) {
+  } else if(e.keyCode==32 && this.people[0].gotputter==true) {
     this.people[0].hit(this.people[1]);
+    this.waiting=false;
   } else {
     console.log(e.keyCode+" is not a shortcut");
   }
