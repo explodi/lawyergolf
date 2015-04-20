@@ -10,10 +10,15 @@ var introscript=[
 	
 ]
 var putterscript=[
-	{'id': 0, 'text': "Hey, we're here to play some golf"},
+	{'id': 0, 'text': "Hey, clerk, we're here to play some golf"},
 	{'id': 2, 'text': "Oh, really?"},
 	{'id': 1, 'text': "Just give us the damn clubs, smart ass"},
-	{'id': 2, 'text': "Ok. Here they are. Click and drag to putt."}
+	{'id': 2, 'text': "Ok. Here they are."},
+	{'id': 2, 'text': "Listen carefully!"},
+	{'id': 2, 'text': "Approach the ball, and click and drag to putt."},
+	{'id': 2, 'text': "And by all means"},
+	{'id': 2, 'text': "DON\'T EVER HIT THE SPACEBAR"},
+	{'id': 2, 'text': "You could hurt someone"}
 	
 ]
 var gamescript=[
@@ -132,9 +137,12 @@ var gamescript=[
 	
 	],
 	
-	[
+	
+
+]
+var finalscript=[
 	{'id': 1, 'text': 'I\'LL FUCKING END YOU.'},
-	{'id': 1, 'text': 'You\'re dead, motherfuker.'},
+	{'id': 1, 'text': 'You\'re dead, motherfucker.'},
 	{'id': 0, 'text': 'No, I\'m not.'},
 	{'id': 1, 'text': 'What?'},
 	{'id': 0, 'text': 'Fucking physically fight me as a man.'},
@@ -170,4 +178,14 @@ var gamescript=[
 	{'id': 0, 'text': 'No.'}
 	]
 
+var pheldonvictory=[
+	{'id': 1, 'text': 'My revenge is done'},
+	{'id': 1, 'text': 'Now I\m hungry'},
+	{'id': 1, 'text': 'I wonder if it\'s too late for bagels'}
+	]
+var bradvictory=[
+	{'id': 0, 'text': 'You deserve worse.'},
+	{'id': 0, 'text': 'This feels so good'},
+	{'id': 0, 'text': 'And by the way' },
+	{'id': 0, 'text': 'Nice parking asshole' }
 ]

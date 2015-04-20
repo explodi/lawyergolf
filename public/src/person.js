@@ -103,6 +103,7 @@ Person.prototype.draw=function(ctx,scale,camera) {
       this.force=0;
     	force=16
     	angle=this.angle-90;
+      if(this.direction==2) angle=angle+180;
     	direction=new b2Vec2(force*Math.cos(angle*Math.PI/180),force*Math.sin(angle*Math.PI/180));
   		this.entity.GetBody().ApplyForce(
       		direction,
@@ -123,7 +124,7 @@ Person.prototype.draw=function(ctx,scale,camera) {
       ff=Math.round(this.hurt/10);
       if(ff>4) ff=4;
       this.frame=22+ff;
-      if(this.ai==true) this.health=this.health-1;
+      this.health=this.health-1;
     } else if(this.punch>0) {
       ff=Math.round(this.punch/500);
       if(ff>4) ff=4;
