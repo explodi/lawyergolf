@@ -63,7 +63,7 @@ function keyupevent(e) {
 }
 function update() {
 	if(currentscene) currentscene.update();
-	if(currentscene.done==true && sceneid==0) currentscene=new GolfScene(canvas);
+	if(currentscene.done && currentscene.done==true) currentscene=new GolfScene(canvas);
 	if(currentscene.needsrestart && currentscene.needsrestart==true) currentscene=new StartScene(canvas);
 	requestAnimFrame(update);
 }

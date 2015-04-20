@@ -72,22 +72,22 @@ function GolfScene(canvas) {
 
 
 
-       //setup debug draw
-       this.debugDraw = new b2DebugDraw();
-       this.debugDraw.SetSprite(document.getElementById("canvas").getContext("2d"));
-       this.debugDraw.SetDrawScale(this.scale);
-       this.debugDraw.SetFillAlpha(0.3);
-       this.debugDraw.SetLineThickness(1.0);
-       this.debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
-       this.world.SetDebugDraw(this.debugDraw);
-       this.map = new Image();
-       this.map.src = 'img/map.png';
-       for(i in polygons) {
-        this.addpolygon(polygons[i],this.world);
-      }
-      for(i in envobjects) {
-        this.addpolygon(envobjects[i],this.bigworld);
-      }
+   //setup debug draw
+   this.debugDraw = new b2DebugDraw();
+   this.debugDraw.SetSprite(document.getElementById("canvas").getContext("2d"));
+   this.debugDraw.SetDrawScale(this.scale);
+   this.debugDraw.SetFillAlpha(0.3);
+   this.debugDraw.SetLineThickness(1.0);
+   this.debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
+   this.world.SetDebugDraw(this.debugDraw);
+   this.map = new Image();
+   this.map.src = 'img/map.png';
+   for(i in polygons) {
+    this.addpolygon(polygons[i],this.world);
+  }
+  for(i in envobjects) {
+    this.addpolygon(envobjects[i],this.bigworld);
+  }
   // setup people world
   playerstart={x:570,y:2030};
   if(this.hole!=null) playerstart=holes[this.hole].start
@@ -172,7 +172,10 @@ GolfScene.prototype.nextdialog=function() {
 GolfScene.prototype.update=function() {
   var pheldon=this.people[1];
   if(pheldon.enemy!=null) {
-    if(pheldon.health<0 && this.dialogscript!=bradvictory) {
+    if(brad.health<0 && this.dialogscript!=pheldonvictory) {
+      this.dialogscript=pheldonvictory;
+      this.dialog=0;
+    } else if(pheldon.health<0 && this.dialogscript!=bradvictory) {
       this.dialogscript=bradvictory;
       this.dialog=0;
     } else if(this.dialogscript!=finalscript && pheldon.health>0) {
