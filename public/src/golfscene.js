@@ -524,18 +524,7 @@ GolfScene.prototype.mousemove=function(e) {
   }
 }
 GolfScene.prototype.keydown=function(e) {
-  if(e.keyCode>36 && e.keyCode<41) {
-    // camera controls
-    if(e.keyCode==38) {
-      cameray=cameray-4;
-    } else if(e.keyCode==40) {
-      cameray=cameray+4;
-    } else if(e.keyCode==37) {
-      camerax=camerax-4;
-    } else if(e.keyCode==39) {
-      camerax=camerax+4;
-    }
-  } else if((e.keyCode==87||e.keyCode==65||e.keyCode==83||e.keyCode==68) && this.people[0].stuck==false) {
+  if(((e.keyCode==87||e.keyCode==65||e.keyCode==83||e.keyCode==68)||(e.keyCode>36 && e.keyCode<41)) && this.people[0].stuck==false) {
     var direction=null;
     // WASD
     if(e.keyCode==87) direction=1; // W
@@ -545,9 +534,16 @@ GolfScene.prototype.keydown=function(e) {
     if(e.keyCode==65) {
       this.people[0].angle=this.people[0].angle-4
     }
-  
-    if(e.keyCode==68) {
+    if(e.keyCode==38) {
+      direction=1;
+    } else if(e.keyCode==40) {
+      direction=2;
+    }
+
+    if(e.keyCode==68||e.keyCode==39) {
       this.people[0].angle=this.people[0].angle+4
+    } else if(e.keyCode==65||e.keyCode==37) {
+      this.people[0].angle=this.people[0].angle-4
     }
     if(direction) this.people[0].direction=direction;
   } else if(e.keyCode==88) {
@@ -569,7 +565,7 @@ GolfScene.prototype.keydown=function(e) {
   }
 }
 GolfScene.prototype.keyup=function(e) {
-  if(e.keyCode==87||e.keyCode==83) {
+  if(e.keyCode==87||e.keyCode==83||e.keyCode==38||e.keyCode==40) {
     this.people[0].direction=null;
     
   }
