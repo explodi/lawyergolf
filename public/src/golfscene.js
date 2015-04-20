@@ -106,6 +106,7 @@ function GolfScene(canvas) {
   var game=this;
   var pheldon=this.people[1];
   var brad=this.people[0];
+  brad.angle=90
   this.needsrestart=false;
   setInterval(function(){
     if(game.dialogscript[game.dialog]!=null) {
@@ -556,7 +557,7 @@ GolfScene.prototype.keydown=function(e) {
       this.editor=true;
       console.log("switched to edit mode")
     }
-  } else if(e.keyCode==32 && this.people[0].gotputter==true) {
+  } else if(e.keyCode==70 && this.people[0].gotputter==true) {
     this.people[0].hit(this.people[1]);
     this.scorevisible=false;
     this.waiting=false;
