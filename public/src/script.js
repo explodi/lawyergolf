@@ -125,9 +125,24 @@ var gamescript=[
 	{'id': 1, 'text': 'I’LL END YOU!!!!'},
 	{'id': 0, 'text': 'Watch out shitbag'},
 	{'id': 0, 'text': 'I’m comin’ for ya'},
+	{'id': 0, 'text': 'You\'ll choke on those fucking loafers.'},
 	{'id': 0, 'text': 'Your demise is near'},
 	{'id': 1, 'text': 'Any last words?'},
-	{'id': 0, 'text': 'How about SUCK MY DICK'}
+	{'id': 0, 'text': 'How about SUCK MY DICK'},
+	{'id': 0, 'text': 'MY ROCK HARD DICK'},
+	{'id': 1, 'text': 'Wow. You\'ve lost it.'},
+	{'id': 1, 'text': 'You\'ve truly lost it.'},
+	{'id': 1, 'text': 'I will not regret ending your life.'},
+	{'id': 1, 'text': 'I\'ll enjoy it.'},
+	{'id': 1, 'text': 'I\'ll enjoy seeing every last drop of blood…'},
+	{'id': 1, 'text': 'leak from your body onto hole number 4.'},
+	{'id': 0, 'text': 'That\'s where you\'re wrong, Phel.'},
+	{'id': 0, 'text': 'I have your nudes. I stole your phone.'},
+	{'id': 1, 'text': 'What the fuck? How? When?'},
+	{'id': 0, 'text': 'I bribed the police with hookers, and snuck into your house…'},
+	{'id': 0, 'text': 'five hours ago.'},
+	{'id': 0, 'text': 'Caroline nearly had a heart attack when she saw me…'},
+	{'id': 0, 'text': 'because of how beautiful I am.'},
 	]
 
 ]
