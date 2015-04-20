@@ -4,6 +4,7 @@ var currentscene;
 var score=0;
 var width;
 var height;
+var sceneid=0;
 
 // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
 window.requestAnimFrame = (function(){
@@ -46,23 +47,23 @@ function draw() {
 
 }
 function mousedownevent(e) {
-	if(currentscene) currentscene.mousedown(e);
+	if(currentscene && currentscene.mousedown) currentscene.mousedown(e);
 }
 function mousemoveevent(e) {
-	if(currentscene) currentscene.mousemove(e);	
+	if(currentscene && currentscene.mousemove) currentscene.mousemove(e);	
 }
 function mouseupevent(e) {
-	if(currentscene) currentscene.mouseup(e);	
+	if(currentscene && currentscene.mouseup) currentscene.mouseup(e);	
 }
 function keydownevent(e) {
-	if(currentscene) currentscene.keydown(e);	
+	if(currentscene && currentscene.keydown) currentscene.keydown(e);	
 }
 function keyupevent(e) {
-	if(currentscene) currentscene.keyup(e);	
+	if(currentscene && currentscene.keyup) currentscene.keyup(e);	
 }
 function update() {
-
 	if(currentscene) currentscene.update();
+	if(currentscene.done==true && sceneid==0) currentscene=new GolfScene(canvas);
 	requestAnimFrame(update);
 }
 
