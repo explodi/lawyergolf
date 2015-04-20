@@ -66,14 +66,14 @@ var gamescript=[
 	{'id': 1, 'text': 'Grow up, you child.'},
 	{'id': 1, 'text': 'I\'m very rich, and I have a beautiful wife.'},
 	{'id': 1, 'text': 'A beautiful, loving wife.'},
-	{'id': 1, 'text': 'She even plays violin for me at night…'},
+	{'id': 1, 'text': 'She even plays cello for me at night…'},
 	{'id': 1, 'text': 'To lull me to sleep'},
 	{'id': 0, 'text': 'Wow.'},
 	{'id': 0, 'text': 'That\'s utterly insane. Why does she do that?'},
 	{'id': 1, 'text': 'Because she loves me, Brad.'},
 	{'id': 0, 'text': 'I\'m not sure I understand.'},
 	{'id': 1, 'text': 'One day, you will. One day you\'ll understand love.'},
-	{'id': 0, 'text': 'Ok'}
+	{'id': 1, 'text': 'Or maybe you won\'t. Maybe you\'ll be lonely forever'}
 	],
 	
 	[
