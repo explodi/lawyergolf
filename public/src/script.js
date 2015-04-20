@@ -1,8 +1,8 @@
 var introscript=[
-	{'id':0,'text':"Hey Pheldon, how are you doing?"},
-	{'id':1,'text':"Living the perfect life, you already know."},
-	{'id':0,'text':"Ok let's get to it. shall we?"},
-	{'id':1,'text':"Sure Brad, let's play some minigolf"}
+	{'id':0,'text':"Hey Pheldon, how are you?"},
+	{'id':1,'text':"I'm rich."},
+	{'id':0,'text':"Never rich enough, huh?"},
+	{'id':1,'text':"I am rich enough. Let's play some golf."}
 ]
 var putterscript=[
 	{'id':0,'text':"Hey, we're here to play some golf"},
@@ -27,7 +27,21 @@ var gamescript=[
 	{'id': 1, 'text': 'I’m a five-time world champion, you know.'},
 	{'id': 1, 'text': 'You know that, right?'},
 	{'id': 1, 'text': 'That I’m a five-time world champion?'},
-	{'id': 0, 'text': 'Yes, I know.'}
+	{'id': 0, 'text': 'Yes, I know.'},
+	{'id': 0, 'text': 'You remind me at every opportunity'},
+	{'id': 1, 'text': 'Don\'t be sour just because I\'m handsome.'},
+	{'id': 0, 'text': 'I\'m sweet as can be.'},
+	{'id': 0, 'text': 'Sweeter than a raspberry pie.'},
+	{'id': 1, 'text': 'You always have been.'},
+	{'id': 1, 'text': 'Even in middle school, you were.'},
+	{'id': 1, 'text': 'Just the sweetest little boy.'},
+	{'id': 1, 'text': 'So sweet.'},
+	{'id': 0, 'text': 'Thank you.'},
+	{'id': 1, 'text': 'Yes, I care deeply about your sweetness.'},
+	{'id': 0, 'text': 'Does Caroline care deeply about your sweetness, Pheldon?'},
+	{'id': 1, 'text': 'Oh, absolutely. Yes.'},
+	{'id': 1, 'text': 'Why?'},
+	{'id': 0, 'text': 'Just wondering.'},
 	],
 	
 	[
@@ -47,7 +61,17 @@ var gamescript=[
 	{'id': 0, 'text': 'It’s fine, I guess,'},
 	{'id': 0, 'text': 'but it’s also not fine.'},
 	{'id': 0, 'text': 'Know what I mean?'},
-	{'id': 1, 'text': 'Not really.'}
+	{'id': 1, 'text': 'Not really.'},
+	{'id': 1, 'text': 'I\'m very rich, and I have a beautiful wife.'},
+	{'id': 1, 'text': 'A beautiful, loving wife.'},
+	{'id': 1, 'text': 'She even plays violin for me at night…'},
+	{'id': 1, 'text': 'To lull me to sleep'},
+	{'id': 0, 'text': 'Wow.'},
+	{'id': 0, 'text': 'That\'s utterly insane. Why does she do that?'},
+	{'id': 1, 'text': 'Because she loves me, Brad.'},
+	{'id': 0, 'text': 'I\'m not sure I understand.'},
+	{'id': 1, 'text': 'One day, you will. One day you\'ll understand love.'},
+	{'id': 0, 'text': 'Ok'}
 	],
 	
 	[
@@ -56,10 +80,10 @@ var gamescript=[
 	{'id': 1, 'text': 'Why don’t you marry it?'},
 	{'id': 0, 'text': 'Maybe I will'},
 	{'id': 0, 'text': 'So I can be like you'},
-	{'id': 0, 'text': 'A tasteless idiot'},
-	{'id': 0, 'text': 'And I get to fuck Caroline'},
+	{'id': 0, 'text': 'A tasteless asshole'},
+	{'id': 0, 'text': 'with a wife that he doesn\'t deserve.'},
 	{'id': 1, 'text': 'Stop talking about Caroline.'},
-	{'id': 1, 'text': 'Stop it now.'},
+	{'id': 1, 'text': 'Stop it immediately.'},
 	{'id': 0, 'text': 'Your suit is magnificent.'},
 	{'id': 1, 'text': 'Stop it.'},
 	{'id': 0, 'text': 'Don’t tell me what to do.'},
@@ -69,6 +93,17 @@ var gamescript=[
 	{'id': 1, 'text': 'You\'re making me sad'},
 	{'id': 0, 'text': 'and I’ll never stop disliking you.'},
 	{'id': 0, 'text': 'I have a strong distaste for you.'}
+	{'id': 1, 'text': 'Brad…'},
+	{'id': 0, 'text': 'What? What are you going to do about it?'},
+	{'id': 0, 'text': 'Try and beat me up? Like in kindergarten?'},
+	{'id': 0, 'text': 'And middle chool and high school? And college?'},
+	{'id': 0, 'text': 'You\'ve always been more successful, and I\'m sick of it!'},
+	{'id': 0, 'text': 'I won\'nt accept it any more.'},
+	{'id': 1, 'text': 'Settle down.'},
+	{'id': 0, 'text': 'No.'},
+	{'id': 0, 'text': 'Fuck you, asshole. You\'re the slimiest douche I know.'},
+	{'id': 0, 'text': 'I throw up every time I think of your disgusting cock.'},
+	{'id': 1, 'text': 'Seriously, Brad?'}
 	
 	],
 	
@@ -76,8 +111,10 @@ var gamescript=[
 	{'id': 1, 'text': 'Are you drunk?'},
 	{'id': 0, 'text': 'No. Fight me.'},
 	{'id': 1, 'text': 'What?'},
+	{'id': 0, 'text': 'Fucking physicaly fight me as a man.'},
 	{'id': 0, 'text': 'One of us is going to die.'},
-	{'id': 1, 'text': 'Here. Today.'},
+	{'id': 1, 'text': 'Here.'},
+	{'id': 1, 'text': 'Today.'},
 	{'id': 1, 'text': 'On this minigolf course.'},
 	{'id': 1, 'text': 'If this is how it has to end'},
 	{'id': 1, 'text': 'then so be it.'},
