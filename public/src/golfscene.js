@@ -171,6 +171,7 @@ GolfScene.prototype.nextdialog=function() {
 
 GolfScene.prototype.update=function() {
   var pheldon=this.people[1];
+  var brad=this.people[0];
   if(pheldon.enemy!=null) {
     if(brad.health<0 && this.dialogscript!=pheldonvictory) {
       this.dialogscript=pheldonvictory;
