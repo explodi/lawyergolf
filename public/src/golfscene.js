@@ -560,6 +560,8 @@ GolfScene.prototype.keydown=function(e) {
     this.people[0].hit(this.people[1]);
     this.scorevisible=false;
     this.waiting=false;
+    e.preventDefault();
+    return false;
   } else {
     console.log(e.keyCode+" is not a shortcut");
   }
