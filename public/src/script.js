@@ -1,14 +1,14 @@
 var introscript=[
-	{'id':0,'text':"Hey Pheldon, how are you?"},
-	{'id':1,'text':"I'm rich."},
-	{'id':0,'text':"Never rich enough, huh?"},
-	{'id':1,'text':"I am rich enough. Let's play some golf."}
+	{'id': 0, 'text': "Hey Pheldon, how are you?"},
+	{'id': 1, 'text': "I\'m rich."},
+	{'id': 0, 'text': "Never rich enough, huh?"},
+	{'id': 1, 'text': "I am rich enough. Let's play some golf."}
 ]
 var putterscript=[
-	{'id':0,'text':"Hey, we're here to play some golf"},
-	{'id':2,'text':"Oh, really?"},
-	{'id':1,'text':"Just give us the damn clubs, smart ass"},
-	{'id':2,'text':"Ok. Here they are. Click and drag to putt."}
+	{'id': 0, 'text': "Hey, we're here to play some golf"},
+	{'id': 2, 'text': "Oh, really?"},
+	{'id': 1, 'text': "Just give us the damn clubs, smart ass"},
+	{'id': 2, 'text': "Ok. Here they are. Click and drag to putt."}
 ]
 var gamescript=[
 
@@ -41,7 +41,7 @@ var gamescript=[
 	{'id': 0, 'text': 'Does Caroline care deeply about your sweetness, Pheldon?'},
 	{'id': 1, 'text': 'Oh, absolutely. Yes.'},
 	{'id': 1, 'text': 'Why?'},
-	{'id': 0, 'text': 'Just wondering.'},
+
 	],
 	
 	[
@@ -92,17 +92,17 @@ var gamescript=[
 	{'id': 0, 'text': 'And her soft tits'},
 	{'id': 1, 'text': 'You\'re making me sad'},
 	{'id': 0, 'text': 'and I’ll never stop disliking you.'},
-	{'id': 0, 'text': 'I have a strong distaste for you.'}
+	{'id': 0, 'text': 'I have a strong distaste for you.'},
 	{'id': 1, 'text': 'Brad…'},
 	{'id': 0, 'text': 'What? What are you going to do about it?'},
 	{'id': 0, 'text': 'Try and beat me up? Like in kindergarten?'},
-	{'id': 0, 'text': 'And middle chool and high school? And college?'},
+	{'id': 0, 'text': 'And middle school and high school? And college?'},
 	{'id': 0, 'text': 'You\'ve always been more successful, and I\'m sick of it!'},
-	{'id': 0, 'text': 'I won\'nt accept it any more.'},
+	{'id': 0, 'text': 'I won\'t accept it any more.'},
 	{'id': 1, 'text': 'Settle down.'},
 	{'id': 0, 'text': 'No.'},
 	{'id': 0, 'text': 'Fuck you, asshole. You\'re the slimiest douche I know.'},
-	{'id': 0, 'text': 'I throw up every time I think of your disgusting cock.'},
+	{'id': 0, 'text': 'I vomit whenever I think of your disgusting cock.'},
 	{'id': 1, 'text': 'Seriously, Brad?'}
 	
 	],
@@ -111,7 +111,7 @@ var gamescript=[
 	{'id': 1, 'text': 'Are you drunk?'},
 	{'id': 0, 'text': 'No. Fight me.'},
 	{'id': 1, 'text': 'What?'},
-	{'id': 0, 'text': 'Fucking physicaly fight me as a man.'},
+	{'id': 0, 'text': 'Fucking physically fight me as a man.'},
 	{'id': 0, 'text': 'One of us is going to die.'},
 	{'id': 1, 'text': 'Here.'},
 	{'id': 1, 'text': 'Today.'},
@@ -123,26 +123,26 @@ var gamescript=[
 	{'id': 1, 'text': 'Defend yourself!!!'},
 	{'id': 0, 'text': 'FUCKFACE!!!!'},
 	{'id': 1, 'text': 'I’LL END YOU!!!!'},
-	{'id': 0, 'text': 'Watch out shitbag'},
-	{'id': 0, 'text': 'I’m comin’ for ya'},
-	{'id': 0, 'text': 'You\'ll choke on those fucking loafers.'},
+	{'id': 0, 'text': 'Watch out, shitbag…'},
+	{'id': 0, 'text': 'I’m comin’ for ya!'},
+	{'id': 0, 'text': 'I hate you and your beautiful hair.'},
+	{'id': 0, 'text': 'You\'ll choke on those expensive fucking loafers.'},
 	{'id': 0, 'text': 'Your demise is near'},
 	{'id': 1, 'text': 'Any last words?'},
 	{'id': 0, 'text': 'How about SUCK MY DICK'},
 	{'id': 0, 'text': 'MY ROCK HARD DICK'},
 	{'id': 1, 'text': 'Wow. You\'ve lost it.'},
-	{'id': 1, 'text': 'You\'ve truly lost it.'},
+	{'id': 1, 'text': 'You\'ve really, truly lost it.'},
 	{'id': 1, 'text': 'I will not regret ending your life.'},
-	{'id': 1, 'text': 'I\'ll enjoy it.'},
 	{'id': 1, 'text': 'I\'ll enjoy seeing every last drop of blood…'},
-	{'id': 1, 'text': 'leak from your body onto hole number 4.'},
+	{'id': 1, 'text': 'leak from your body onto hole number 3.'},
 	{'id': 0, 'text': 'That\'s where you\'re wrong, Phel.'},
 	{'id': 0, 'text': 'I have your nudes. I stole your phone.'},
 	{'id': 1, 'text': 'What the fuck? How? When?'},
 	{'id': 0, 'text': 'I bribed the police with hookers, and snuck into your house…'},
 	{'id': 0, 'text': 'five hours ago.'},
 	{'id': 0, 'text': 'Caroline nearly had a heart attack when she saw me…'},
-	{'id': 0, 'text': 'because of how beautiful I am.'},
+	{'id': 0, 'text': 'because of how beautiful I am.'}
 	]
 
 ]
