@@ -50,6 +50,7 @@ var gamescript=[
 	{'id': 0, 'text': 'I can’t even bear thinking of Caroline anymore.'},
 	{'id': 0, 'text': 'it’s like you’ve ruined her memory'},
 	{'id': 0, 'text': 'by stealing her from me.'},
+	{'id': 1, 'text': 'You\'re fucking pitiful. It really is embarrassing.'},
 	{'id': 1, 'text': 'Your tan looks phenomenal.'},
 	{'id': 1, 'text': 'And that watch...'},
 	{'id': 0, 'text': 'It’s the expensive one.'},
@@ -62,6 +63,7 @@ var gamescript=[
 	{'id': 0, 'text': 'but it’s also not fine.'},
 	{'id': 0, 'text': 'Know what I mean?'},
 	{'id': 1, 'text': 'Not really.'},
+	{'id': 1, 'text': 'Grow up, you child.'},
 	{'id': 1, 'text': 'I\'m very rich, and I have a beautiful wife.'},
 	{'id': 1, 'text': 'A beautiful, loving wife.'},
 	{'id': 1, 'text': 'She even plays violin for me at night…'},
@@ -136,13 +138,7 @@ var gamescript=[
 	{'id': 1, 'text': 'I will not regret ending your life.'},
 	{'id': 1, 'text': 'I\'ll enjoy seeing every last drop of blood…'},
 	{'id': 1, 'text': 'leak from your body onto hole number 3.'},
-	{'id': 0, 'text': 'That\'s where you\'re wrong, Phel.'},
-	{'id': 0, 'text': 'I have your nudes. I stole your phone.'},
-	{'id': 1, 'text': 'What the fuck? How? When?'},
-	{'id': 0, 'text': 'I bribed the police with hookers, and snuck into your house…'},
-	{'id': 0, 'text': 'five hours ago.'},
-	{'id': 0, 'text': 'Caroline nearly had a heart attack when she saw me…'},
-	{'id': 0, 'text': 'because of how beautiful I am.'}
+	{'id': 0, 'text': 'That\'s where you\'re wrong, Phel.'}
 	]
 
 ]
