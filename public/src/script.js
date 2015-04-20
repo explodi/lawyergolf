@@ -111,7 +111,20 @@ var gamescript=[
 	{'id': 0, 'text': 'No.'},
 	{'id': 0, 'text': 'Fuck you, asshole. You\'re the slimiest douche I know.'},
 	{'id': 0, 'text': 'I vomit whenever I think of your disgusting cock.'},
-	{'id': 1, 'text': 'Seriously, Brad?'}
+	{'id': 1, 'text': 'Seriously, Brad?'},
+	{'id': 1, 'text': 'You\'ve always been a piece of shit, and I\'m…'},
+	{'id': 1, 'text': 'finally realizing that you\'re a complete fucking idiot.'},
+	{'id': 1, 'text': 'Don\'t talk about my dick ever again, or I\'ll…'},
+	{'id': 1, 'text': 'ruin your modeling career. I have your nudes.'},
+	{'id': 0, 'text': 'You wouldn\'t…'},
+	{'id': 1, 'text': 'You know I would. I\'m rock hard just thinking about it.'},
+	{'id': 1, 'text': 'I\'ve been waiting since middle school to fuck you over, Brad.'},
+	{'id': 0, 'text': 'Fuck you, Pheldon. You have the dryest dick in town.'},
+	{'id': 0, 'text': 'Your dick is dryer than the fucking Sahara.'},
+	{'id': 0, 'text': 'I want to take your dick on a date just so I can…'},
+	{'id': 0, 'text': 'drug it up and toss it in a fucking dumpster.'},
+	{'id': 0, 'text': 'Your dick is trash.'},
+	{'id': 1, 'text': 'You\'ll regret this.'}
 	
 	],
 	
