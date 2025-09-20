@@ -1,0 +1,56 @@
+{
+  "name": "lawyergolf",
+  "version": "1.0.0",
+  "description": "Lawyer up bitch!",
+  "homepage": "https://github.com/explodi/lawyergolf#readme",
+  "bugs": {
+    "url": "https://github.com/explodi/lawyergolf/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/explodi/lawyergolf.git"
+  },
+  "license": "ISC",
+  "author": "Cristián González & Kevin Thrasher",
+  "type": "commonjs",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "config": {
+    "forge": {
+      "makers": [
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": ["darwin", "linux", "win32"]
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "npm run make:mac && npm run make:win && npm run make:linux",
+    "make:mac": "electron-forge make --platform=darwin",
+    "make:win": "electron-forge make --platform=win32 --arch=x64",
+    "make:linux": "electron-forge make --platform=linux --arch=x64",
+    "publish:win": "butler push out/make/zip/win32/x64/lawyergolf-win32-x64-1.0.0.zip explodi/lawyergolf:win",
+    "publish:mac": "butler push out/make/zip/darwin/arm64/lawyergolf-darwin-arm64-1.0.0.zip explodi/lawyergolf:mac",
+    "publish:linux": "butler push out/make/zip/darwin/arm64/lawyergolf-darwin-arm64-1.0.0.zip explodi/lawyergolf:linux",
+    "publish": "npm run make && npm run publish:win && npm run publish:mac && npm run publish:linux"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.9.0",
+    "@electron-forge/maker-deb": "^7.9.0",
+    "@electron-forge/maker-rpm": "^7.9.0",
+    "@electron-forge/maker-squirrel": "^7.9.0",
+    "@electron-forge/maker-zip": "^7.9.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.9.0",
+    "@electron-forge/plugin-fuses": "^7.9.0",
+    "@electron/fuses": "^1.8.0",
+    "electron": "^38.1.2"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1"
+  }
+}
