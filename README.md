@@ -4,7 +4,14 @@ You are meeting fellow lawyer Pheldon for a game of golf. Or actually, mini. gol
 
 A game developed for the Ludum Dare #32 game jam. The theme was "An unconventional weapon"
 
+<img src="https://github.com/explodi/lawyergolf/blob/master/img/screenshot.png?raw=true">
+
+<div align="center">
+  
 [Download in itch.io](https://explodi.itch.io/lawyergolf) - [Play Online](https://explodi.github.io/lawyergolf/)
+
+</div>
+
 
 ## Controls
 * Use the WASD keys to move
